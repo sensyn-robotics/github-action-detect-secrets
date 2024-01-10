@@ -1,0 +1,28 @@
+name: 'detect-secrets-action'
+description: 'Run detect-secrets on your codebase'
+inputs:
+  baseline:
+    description: 'Baseline file path (relative to mount-path)'
+    required: true
+    default: '.secrets.baseline'
+  detect-secrets-version:
+    description: 'detect-secrets version'
+  
+runs:
+  using: "composite"
+  steps:
+    - name: install detect-secrets
+      shell: bash
+      env:
+        VERSION: ${{ inputs.detect-secrets-version }}
+      run: |
+        if [ -z "$VERSION" ]; then
+          pip install detect-secrets
+        else
+          pip install detect-secrets==$VERSION
+        fi
+    - name: run detect-secrets 
+      run: git ls-files -z | xargs -0 detect-secrets-hook --verbose --baseline $BASELINE
+      shell: bash
+      env:
+        BASELINE: ${{ inputs.baseline }}
