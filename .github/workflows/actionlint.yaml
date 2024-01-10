@@ -1,0 +1,8 @@
+name: Workflows Linter
+
+on:
+  push:
+
+jobs:
+  workflows-linter:
+    uses: sensyn-robotics/github-actions/.github/workflows/actionlint.yaml@main
