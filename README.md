@@ -8,6 +8,7 @@ it will run againts all files managed in git repository
 
 ## Prerequisites
 create a baseline file for your repository
+
 please refer: https://github.com/Yelp/detect-secrets?tab=readme-ov-file#adding-secrets-to-baseline
 
 ## Usage
