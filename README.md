@@ -15,7 +15,7 @@ please refer: https://github.com/Yelp/detect-secrets?tab=readme-ov-file#adding-s
 
 <!-- start usage -->
 ```yaml
-- uses: sensyn-robotics/github-actions/.github/actions/detect-secrets@v1
+- uses: sensyn-robotics/github-action-detect-secrets@v1
   with:
     # Baseline file for detect-secrets, relative to the mount-path
     # Default; .secrets.baseline
@@ -33,5 +33,5 @@ please refer: https://github.com/Yelp/detect-secrets?tab=readme-ov-file#adding-s
 steps:
     - uses: actions/checkout@v3
     - name: Run DetectSecrets
-    uses: sensyn-robotics/github-actions/.github/actions/detect-secrets@v1
+    uses: sensyn-robotics/github-action-detect-secrets@v1
 ```
