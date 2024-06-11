@@ -4,5 +4,17 @@ on:
   push:
 
 jobs:
-  workflows-linter:
-    uses: sensyn-robotics/github-actions/.github/workflows/actionlint.yaml@main
+  Actionlint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download actionlint
+        id: get_actionlint
+        shell: bash
+        run: bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash)
+
+      - name: Lint
+        shell: bash
+        run: ${{ steps.get_actionlint.outputs.executable }} -color -shellcheck=
