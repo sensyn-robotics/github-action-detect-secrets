@@ -23,7 +23,7 @@ please refer: https://github.com/Yelp/detect-secrets?tab=readme-ov-file#adding-s
 
     # Version of detect-secrets
     # When not specified, use latest
-    detect-secrets-version: "1.4.0"
+    detect-secrets-version: "1.5.0"
 ```
 <!-- end usage -->
 
@@ -31,7 +31,7 @@ please refer: https://github.com/Yelp/detect-secrets?tab=readme-ov-file#adding-s
 
 ```yaml
 steps:
-    - uses: actions/checkout@v3
-    - name: Run DetectSecrets
+  - uses: actions/checkout@v4
+  - name: Run DetectSecrets
     uses: sensyn-robotics/github-action-detect-secrets@v1
 ```
